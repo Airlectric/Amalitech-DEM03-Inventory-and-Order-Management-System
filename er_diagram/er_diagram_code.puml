@@ -1,0 +1,44 @@
+@startuml
+
+entity Customer {
+  *customer_id : INT <<PK>>
+  --
+  full_name : VARCHAR
+  email : VARCHAR
+  phone : VARCHAR
+  shipping_address : VARCHAR
+}
+
+entity Product {
+  *product_id : INT <<PK>>
+  --
+  product_name : VARCHAR
+  category : VARCHAR
+  price : DECIMAL(10,2)
+}
+
+entity "Order" as OrderEnt {
+  *order_id : INT <<PK>>
+  --
+  customer_id : INT <<FK>>
+  order_date : DATE
+  total_amount : DECIMAL(10,2)
+  order_status : VARCHAR
+}
+
+entity OrderItem {
+  *order_item_id : INT <<PK>>   ' using surrogate PK for clean physical model
+  --
+  order_id : INT <<FK>>
+  product_id : INT <<FK>>
+  quantity : INT
+  price_at_purchase : DECIMAL(10,2)
+}
+
+' --------- Relationships ---------
+
+Customer ||--o{ OrderEnt : "places"
+OrderEnt ||--|{ OrderItem : "contains"
+Product ||--o{ OrderItem : "is included in"
+
+@enduml
