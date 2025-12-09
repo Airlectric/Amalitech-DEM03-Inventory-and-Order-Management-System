@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ecommerce_project
+    restart: always
+
+    env_file:
+      - .env   # Load MySQL credentials from .env
+
+    ports:
+      - "${MYSQL_PORT}:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/docker_init:/docker-entrypoint-initdb.d
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 10
+      timeout: 5s
+
+volumes:
+  mysql_data:
