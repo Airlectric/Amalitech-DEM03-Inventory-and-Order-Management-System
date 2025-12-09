@@ -27,7 +27,7 @@ entity "Order" as OrderEnt {
 }
 
 entity OrderItem {
-  *order_item_id : INT <<PK>>   ' using surrogate PK for clean physical model
+  *order_item_id : INT <<PK>>   ' using surrogate PK 
   --
   order_id : INT <<FK>>
   product_id : INT <<FK>>
@@ -35,10 +35,20 @@ entity OrderItem {
   price_at_purchase : DECIMAL(10,2)
 }
 
+entity Inventory {
+  *product_id : INT <<PK>>  <<FK>>     
+  --
+  quantity_on_hand : INT
+  last_updated : DATE
+}
+
 ' --------- Relationships ---------
 
 Customer ||--o{ OrderEnt : "places"
 OrderEnt ||--|{ OrderItem : "contains"
 Product ||--o{ OrderItem : "is included in"
+
+' Inventory relationship
+Product ||--|| Inventory : "has inventory record"
 
 @enduml
