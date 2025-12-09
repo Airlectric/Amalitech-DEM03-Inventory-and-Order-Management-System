@@ -22,10 +22,7 @@ CREATE TABLE Order(
     customer_id INT NOT NULL,
     order_date DATE NOT NULL,
     total_amount DECIMAL(10,2) NOT NULL CHECK (total_amount >= 0)
-    order_status VARCHAR(20) NOT NULL,
-    CONSTRAINT fk_order_customer FOREIGN KEY (customer_id)
-        REFERENCES Customer(customer_id)
-        ON DELETE CASCADE 
+    order_status VARCHAR(20) NOT NULL
 )
 
 --Creation of OrderItem table
@@ -35,10 +32,4 @@ CREATE TABLE OrderItem (
     product_id NOT NULL,
     quantity INT NOT NULL CHECK (quantity > 0),
     price_at_purchase DECIMAL(10,2) NOT NULL CHECK (price_at_purchase > 0)
-    CONSTRAINT fk_orderitem_order FOREIGN KEY (order_id)
-        REFERENCES `Order`(order_id)
-        ON DELETE CASCADE
-    CONSTRAINT fk_orderitem_product FOREIGN KEY (product_id)
-        REFERENCES Product(product_id)
-        ON DELETE CASCADE
 )
