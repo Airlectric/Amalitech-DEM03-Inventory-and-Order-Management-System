@@ -16,6 +16,15 @@ CREATE TABLE Product(
     price DECIMAL(10,2) NOT NULL CHECK(price > 0)
 );
 
+-- Creation of inventory table
+CREATE TABLE Inventory (
+    product_id NOT NULL,
+    quantity_on_hand INT NOT NULL DEFAULT 0,
+
+    PRIMARY KEY (product_id)
+)
+
+
 --Creation of Order table
 CREATE TABLE Order(
     order_id INT PRIMARY KEY AUTO_INCREMENT,
