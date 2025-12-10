@@ -13,7 +13,7 @@ CREATE TABLE Product(
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     product_name VARCHAR(100) NOT NULL,
     category VARCHAR(50),
-    price DECIMAL(10,2) NOT NULL CHECK(price > 0)
+    price DECIMAL(10,2) NOT NULL CHECK(price >= 0)
 );
 
 -- Creation of inventory table
@@ -40,5 +40,5 @@ CREATE TABLE OrderItem (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL CHECK (quantity > 0),
-    price_at_purchase DECIMAL(10,2) NOT NULL CHECK (price_at_purchase > 0)
+    price_at_purchase DECIMAL(10,2) NOT NULL CHECK (price_at_purchase >= 0)
 );

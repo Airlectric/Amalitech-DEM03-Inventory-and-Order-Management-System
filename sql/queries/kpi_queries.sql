@@ -1,12 +1,12 @@
 -- 1. Total Revenue from completed orders
-SELECT ROUND(SUM(total_amount), 2) AS total_revenue
+SELECT SUM(total_amount) AS total_revenue
 FROM `Order`
 WHERE order_status IN ('Shipped', 'Delivered');
 
 -- 2. Top 10 Customers by total spending
 SELECT 
     c.full_name,
-    ROUND(SUM(o.total_amount), 2) AS total_spent
+    SUM(o.total_amount) AS total_spent
 FROM Customer c
 JOIN `Order` o ON c.customer_id = o.customer_id
 WHERE o.order_status IN ('Shipped', 'Delivered')

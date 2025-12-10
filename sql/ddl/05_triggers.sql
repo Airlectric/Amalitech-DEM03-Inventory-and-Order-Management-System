@@ -30,7 +30,15 @@ BEGIN
     CALL restore_inventory(OLD.product_id, OLD.quantity);
 END$$
 
-
+-- Fires automatically BEFORE inserting a new OrderItem
+-- Sets the price_at_purchase to the current Product price
+CREATE TRIGGER orderitem_before_insert
+BEFORE INSERT ON OrderItem
+FOR EACH ROW
+BEGIN
+    -- Set price_at_purchase from Product.price
+    SET NEW.price_at_purchase = (SELECT price FROM Product WHERE product_id = NEW.product_id);
+END$$
 
 
 

@@ -10,7 +10,7 @@ TRIGGER FUNCTIONS (ACTUALLY Stored Procedures)
 -- It also updates the order_status depending on whether the total is > 0.
 CREATE PROCEDURE update_order_total(IN orderId INT)
 BEGIN
-    UPDATE `Order` AS o
+    UPDATE `Order` o
     SET
         o.total_amount = (
             SELECT COALESCE(SUM(quantity * price_at_purchase), 0)
@@ -44,6 +44,18 @@ BEGIN
         WHERE product_id = productId;
     END IF;
 END$$
+
+
+-- This procedure sets the price_at_purchase in OrderItem to the current product price
+CREATE PROCEDURE set_orderitem_price(IN orderItemId INT)
+BEGIN
+    UPDATE OrderItem oi
+    JOIN Product p ON oi.product_id = p.product_id
+    SET oi.price_at_purchase = p.price
+    WHERE oi.order_item_id = orderItemId;
+END$$
+
+
 
 
 DELIMITER ;
