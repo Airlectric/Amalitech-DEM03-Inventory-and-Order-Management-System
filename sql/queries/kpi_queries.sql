@@ -17,20 +17,19 @@ LIMIT 10;
 -- 3. Top 5 Best-Selling Products by quantity
 SELECT 
     p.product_name,
-    p.category,
     SUM(oi.quantity) AS total_quantity_sold
 FROM Product p
 JOIN OrderItem oi ON p.product_id = oi.product_id
 JOIN `Order` o ON oi.order_id = o.order_id
 WHERE o.order_status IN ('Shipped', 'Delivered')
-GROUP BY p.product_id, p.product_name, p.category
+GROUP BY p.product_id, p.product_name
 ORDER BY total_quantity_sold DESC
 LIMIT 5;
 
 -- 4. Monthly Sales Trend
 SELECT 
     DATE_FORMAT(order_date, '%Y-%m') AS sales_month,
-    ROUND(SUM(total_amount), 2) AS monthly_revenue
+    SUM(total_amount) AS monthly_revenue
 FROM `Order`
 WHERE order_status IN ('Shipped', 'Delivered')
 GROUP BY sales_month
