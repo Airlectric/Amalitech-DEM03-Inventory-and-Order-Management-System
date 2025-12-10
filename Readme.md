@@ -108,26 +108,94 @@ Implements the many-to-many relationship by storing:
 
 ---
 
-## Usage
 
-1. Make the script executable:
+
+# **Database Initialization & Access Guide**
+
+This guide explains:
+
+* How to generate and organize your `ddl/` and `dml/` SQL files for Docker.
+* How to access the MySQL database inside your running Docker container.
+
+---
+
+## **1. Generating Docker-Ready SQL Initialization Files**
+
+Whenever you update your `ddl/` or `dml/` folders, regenerate the `docker_init/` folder so Docker loads SQL files in the correct order.
+
+### **Step 1: Make the Script Executable**
 
 ```bash
 chmod +x generate_docker_init.sh
 ```
 
-2. Run it whenever you update your `ddl/` or `dml/` files:
+### **Step 2: Run the Script**
 
 ```bash
 ./generate_docker_init.sh
 ```
 
-3. Then start your Docker containers:
+This automatically builds the proper `docker_init/` folder from your `ddl/` and `dml/` files.
+
+### **Step 3: Start Docker**
 
 ```bash
 docker-compose up -d
 ```
 
-Docker will now see all SQL files in the **correct order** without manually copying anything.
+Your MySQL container will now load the SQL files correctly without manual copying.
 
---
+---
+
+## **2. How to Access MySQL Inside the Docker Container**
+
+### **Step 1: Start Containers**
+
+```bash
+docker-compose up -d
+```
+
+Runs everything in the background.
+
+### **Step 2: Enter the MySQL Container**
+
+```bash
+docker exec -it ecommerce_project bash
+```
+
+Your prompt will change:
+
+```
+root@<container_id>:/#
+```
+
+You are now inside the container.
+
+### **Step 3: Connect to MySQL**
+
+```bash
+mysql -u ecommerce_user -p
+```
+
+Use the username from your `.env` file.
+
+### **Step 4: Enter Your Password**
+
+You’ll be prompted for the password from `.env`.
+
+Once successful, you’ll see:
+
+```
+mysql>
+```
+
+You can now run SQL queries.
+
+Example:
+
+```sql
+SHOW DATABASES;
+USE ecommerce_db;
+SELECT * FROM Customer;
+```
+

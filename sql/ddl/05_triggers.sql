@@ -6,7 +6,7 @@ CREATE TRIGGER orderitem_after_insert
 AFTER INSERT ON OrderItem
 FOR EACH ROW
 BEGIN
-    CALL update_order_total(NEW.order_id)
+    CALL update_order_total(NEW.order_id);
 END$$
 
 

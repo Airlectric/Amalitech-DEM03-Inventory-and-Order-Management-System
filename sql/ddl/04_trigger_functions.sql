@@ -21,7 +21,7 @@ BEGIN
         -- Set order_status
         o.order_status = IF(o.total_amount > 0, 'Processing', 'Pending')
     
-    WHERE o.order = orderId
+    WHERE o.order_id = orderId;
 END$$
 
 
