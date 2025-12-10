@@ -108,7 +108,26 @@ Implements the many-to-many relationship by storing:
 
 ---
 
-## Notes
+## Usage
 
-* This document is a **partial README** focused solely on the ER diagram and the database structure behind it.
-* A full project README will integrate this section along with setup instructions, schema files, Docker configuration, and application logic.
+1. Make the script executable:
+
+```bash
+chmod +x generate_docker_init.sh
+```
+
+2. Run it whenever you update your `ddl/` or `dml/` files:
+
+```bash
+./generate_docker_init.sh
+```
+
+3. Then start your Docker containers:
+
+```bash
+docker-compose up -d
+```
+
+Docker will now see all SQL files in the **correct order** without manually copying anything.
+
+--
