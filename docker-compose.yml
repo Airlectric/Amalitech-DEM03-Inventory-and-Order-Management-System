@@ -3,7 +3,6 @@ services:
     image: mysql:8.0
     container_name: ecommerce_project
     restart: always
-
     env_file:
       - .env
 
@@ -13,15 +12,26 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       - ./sql/docker_init:/docker-entrypoint-initdb.d
-      - ./mysql_conf/my.cnf:/etc/mysql/my.cnf  # Custom config
-      - ./logs:/logs                           # Host logs folder mounted
+      - ./logs:/logs
+
+    command: >
+      mysqld
+      --log-error=/logs/mysql_error.log
+      --slow-query-log=1
+      --slow-query-log-file=/logs/mysql_slow_query.log
+      --long_query_time=1
+      --log-queries-not-using-indexes=1
+      
+      --general-log=1
+      --general-log-file=/logs/mysql_general_query.log
+
+      --log-output=FILE
 
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
-      retries: 10
       timeout: 5s
-
+      retries: 10
 
 volumes:
   mysql_data:
