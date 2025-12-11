@@ -1,26 +1,36 @@
-# Project Documentation
+# E-Commerce Database Project
 
-## Table of Contents
-1. Introduction  
-2. Project Structure  
-3. ER Diagram Documentation  
-    3.1 Overview  
-    3.2 ER Diagram  
-    3.3 Entity Summaries  
-    3.4 Relationship and Cardinality Rules  
-    3.5 Notes on Keys and Design Decisions  
-4. Database Initialization Guide  
-    4.1 SQL File Structure (ddl, dml, docker_init)  
-    4.2 Automated SQL Generation  
-    4.3 Using the generate_docker_init.sh Script  
-5. Docker Environment Setup  
-    5.1 MySQL Service  
-    5.2 phpMyAdmin Service  
-6. Accessing the Database  
-    6.1 Starting Docker  
-    6.2 Entering the MySQL Container  
-    6.3 Connecting to the MySQL Shell  
-7. Additional Notes and Best Practices  
+A complete, production-ready relational database system for an e-commerce platform, featuring a well-normalized schema, automated Docker setup, ER diagram, triggers, stored procedures, sample data, and analytical queries.
+
+## Table of Contents 
+
+1. [Introduction](#1-introduction)
+2. [Project Structure](#2-project-structure)
+
+   * [Combined Scripts Directory](#21-combined-scripts-directory)
+3. [ER Diagram Documentation](#3-er-diagram-documentation)
+
+   * [Overview](#31-overview)
+   * [ER Diagram](#32-er-diagram)
+   * [Entity Summaries](#33-entity-summaries)
+   * [Relationship and Cardinality Rules](#34-relationship-and-cardinality-rules)
+   * [Notes on Keys and Design Decisions](#35-notes-on-keys-and-design-decisions)
+4. [Database Initialization Guide](#4-database-initialization-guide)
+
+   * [SQL File Structure (ddl, dml, docker_init)](#41-sql-file-structure-ddl-dml-docker_init)
+   * [Automated SQL Generation](#42-automated-sql-generation)
+   * [Using the generate_docker_initsh Script](#43-using-the-generate_docker_initsh-script)
+5. [Docker Environment Setup](#5-docker-environment-setup)
+
+   * [MySQL Service](#51-mysql-service)
+   * [phpMyAdmin Service](#52-phpmyadmin-service)
+6. [Accessing the Database](#6-accessing-the-database)
+
+   * [Starting Docker](#61-starting-docker)
+   * [Entering the MySQL Container](#62-entering-the-mysql-container)
+   * [Connecting to the MySQL Shell](#63-connecting-to-the-mysql-shell)
+
+
 
 ---
 
@@ -36,45 +46,90 @@ It explains the Entity-Relationship model, directory structure, SQL initializati
 ```
 
 project_root/
-│
-├── README.md
-│
-├── er_diagram/
-│   ├── er_diagram.puml
-│   └── er_diagram.png
-│  
-│
-├── sql/
-│   ├── ddl/
-│   │   ├── create_tables.sql
-│   │   ├── constraints.sql
-│   │   └── indexes.sql
-│   │
-│   ├── dml/
-│   │   ├── sample_data.sql
-│   │   └── update_inventory.sql
-│   │
-│   ├── queries/
-│   │   ├── kpi_queries.sql
-│   │   └── analytical_queries.sql
-│   │   
-│   │
-│   └── utils/
-│       └── cleanup.sql
-│
-├── sql/docker_init/   (auto-generated)
-│   ├── 01_ddl_create_tables.sql
-│   ├── 02_ddl_constraints.sql
-│   ├── 03_ddl_indexes.sql
-│   ├── 04_dml_sample_data.sql
-│   ├── 05_dml_update_inventory.sql
-│
 |
-│
+├── .gitignore
+├── Combined_Scripts
+│   ├── DDL.sql
+│   ├── DML.sql
+│   ├── Sample_data.sql
+│   └── er_diagram.png
+├── Readme.md
+├── docker-compose.yml
+├── er_diagram
+│   ├── er_diagram.png
+│   └── er_diagram_code.puml
 ├── generate_docker_init.sh
-└── docker-compose.yml
+├── logs
+│   ├── mysql_error.log
+│   ├── mysql_general.log
+│   ├── mysql_general_query.log
+│   ├── mysql_slow.log
+│   └── mysql_slow_query.log
+├── sql
+│   ├── ddl
+│   │   ├── 01_create_tables.sql
+│   │   ├── 02_constraints.sql
+│   │   ├── 03_indexes.sql
+│   │   ├── 04_trigger_functions.sql
+│   │   └── 05_triggers.sql
+│   ├── dml
+│   │   ├── 06_sample-data.sql
+│   │   ├── 07_stored_procedures.sql
+│   │   └── 08_views.sql
+│   ├── docker_init (Automatically generated when docker is started for execution of scripts)
+│   │   ├── 01_ddl_01_create_tables.sql
+│   │   ├── 02_ddl_02_constraints.sql
+│   │   ├── 03_ddl_03_indexes.sql
+│   │   ├── 04_ddl_04_trigger_functions.sql
+│   │   ├── 05_ddl_05_triggers.sql
+│   │   ├── 06_ddl_07_stored_procedures.sql
+│   │   ├── 07_ddl_08_views.sql
+│   │   ├── 08_dml_06_sample-data.sql
+│   │   └── 09_dml_09_update_inventory.sql
+│   └── queries
+│       ├── analytical_queries.sql
+│       └── kpi_queries.sql
 
 ```
+
+---
+
+## 2.1 Combined Scripts Directory
+
+The `Combined_Scripts/` directory exists to make it easier for someone to **set up or run the entire database without relying on Docker or the project’s internal multi-file folder structure**.
+
+During development, the database code was organized into separate folders for tables, views, procedures, triggers, inserts, and analytical queries, to keep the project modular and maintainable.
+However, when another developer or DBA wants to recreate the database quickly, they usually prefer having **a small number of consolidated SQL files** that can be executed in one go.
+
+To support that workflow, the following combined scripts were created:
+
+---
+
+### 1. `DDL.sql`
+
+This script contains **all Data Definition Language (DDL) statements** needed to build the database from scratch:
+
+* Table creation statements
+* Primary & foreign keys
+* Indexes
+* Trigger functions
+* Triggers
+
+Having all structural definitions in one file makes it easy for someone to set up the database in a single execution, especially when not using Docker or automated migrations.
+
+---
+
+### 2. `DML.sql`
+
+This script contains **all Data Manipulation Language (DML) and database logic**, including:
+
+* Data inserts
+* Analytical queries
+* KPI queries
+* Views
+* Stored procedures
+
+It acts as the “logic layer” of the database, providing everything that operates on the schema defined in `DDL.sql`.
 
 ---
 
@@ -385,18 +440,4 @@ USE <your_database_name>;
 SELECT * FROM Customer;
 
 ```
-
----
-
-# 7. Additional Notes and Best Practices
-
-- Always regenerate the docker_init folder whenever ddl or dml files change.
-- Avoid placing SQL files directly under docker_init manually.
-- Use consistent naming conventions across SQL files.
-- Use phpMyAdmin or MySQL CLI for testing queries.
-- Keep ER diagrams updated whenever structural database changes occur.
-- Maintain normalization to avoid data redundancy.
-- Keep business logic in stored procedures and triggers to maintain consistency.
-
-
 
