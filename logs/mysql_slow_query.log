@@ -713,3 +713,426 @@ SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUM
 # Query_time: 0.000455  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
 SET timestamp=1765446570;
 SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:11:33.671876Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   282
+# Query_time: 0.000901  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765447893;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:11:33.673059Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   282
+# Query_time: 0.000602  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765447893;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:11:33.673892Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   282
+# Query_time: 0.000445  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765447893;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:16:56.952556Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   316
+# Query_time: 0.001130  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765448216;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:16:56.953598Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   316
+# Query_time: 0.000575  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448216;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:16:56.954457Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   316
+# Query_time: 0.000474  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448216;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:17:04.076487Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   319
+# Query_time: 0.000506  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765448224;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:17:04.076896Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   319
+# Query_time: 0.000256  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448224;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:17:04.077263Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   319
+# Query_time: 0.000248  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448224;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:17:05.129245Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   321
+# Query_time: 0.001106  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765448225;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:17:05.130221Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   321
+# Query_time: 0.000663  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448225;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:17:05.131052Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   321
+# Query_time: 0.000491  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448225;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:17:06.199518Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   323
+# Query_time: 0.001120  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765448226;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:17:06.200835Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   323
+# Query_time: 0.000778  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448226;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:17:06.201968Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   323
+# Query_time: 0.000599  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765448226;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:41:05.528648Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   468
+# Query_time: 0.001604  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765449665;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:41:05.529411Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   468
+# Query_time: 0.000505  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449665;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:41:05.529862Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   468
+# Query_time: 0.000252  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449665;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:41:34.940664Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   473
+# Query_time: 0.000970  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765449694;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:41:34.941832Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   473
+# Query_time: 0.000536  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449694;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:41:34.942583Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   473
+# Query_time: 0.000487  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449694;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:41:35.978602Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   475
+# Query_time: 0.001457  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765449695;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:41:35.979664Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   475
+# Query_time: 0.000844  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449695;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:41:35.980411Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   475
+# Query_time: 0.000498  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449695;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T10:41:38.012185Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   477
+# Query_time: 0.000943  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765449698;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T10:41:38.013468Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   477
+# Query_time: 0.000703  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449698;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T10:41:38.014486Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   477
+# Query_time: 0.000482  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765449698;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:05:37.791721Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   622
+# Query_time: 0.001105  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451137;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:05:37.792948Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   622
+# Query_time: 0.000671  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451137;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:05:37.794151Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   622
+# Query_time: 0.000653  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451137;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:06:03.159893Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   627
+# Query_time: 0.000950  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451163;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:06:03.161024Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   627
+# Query_time: 0.000580  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451163;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:06:03.162029Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   627
+# Query_time: 0.000517  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451163;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:06:04.216273Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   629
+# Query_time: 0.000656  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451164;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:06:04.217004Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   629
+# Query_time: 0.000347  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451164;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:06:04.217916Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   629
+# Query_time: 0.000434  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451164;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:06:05.261070Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   631
+# Query_time: 0.001219  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451165;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:06:05.262260Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   631
+# Query_time: 0.000704  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451165;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:06:05.263863Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   631
+# Query_time: 0.001073  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451165;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:11:20.993813Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   666
+# Query_time: 0.006677  Lock_time: 0.000050 Rows_sent: 25  Rows_examined: 85
+SET timestamp=1765451480;
+SELECT 
+    category,
+    product_name,
+    total_revenue,
+    DENSE_RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS rank_in_category
+FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+    FROM Product p
+    JOIN OrderItem oi ON p.product_id = oi.product_id
+    JOIN `Order` o ON oi.order_id = o.order_id
+    WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) ranked
+ORDER BY category, rank_in_category LIMIT 0, 25;
+# Time: 2025-12-11T11:11:21.002834Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   666
+# Query_time: 0.002025  Lock_time: 0.000004 Rows_sent: 1  Rows_examined: 30
+SET timestamp=1765451481;
+SELECT COUNT(*) FROM (SELECT category, product_name, total_revenue, DENSE_RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS `rank_in_category` FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+ FROM Product p
+ JOIN OrderItem oi ON p.product_id = oi.product_id
+ JOIN `Order` o ON oi.order_id = o.order_id
+ WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) AS `ranked` ) as cnt;
+# Time: 2025-12-11T11:11:21.041700Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   666
+# Query_time: 0.001286  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451481;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:11:21.043476Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   666
+# Query_time: 0.000948  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451481;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:11:21.044577Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   666
+# Query_time: 0.000728  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451481;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:11:44.982087Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   673
+# Query_time: 0.003337  Lock_time: 0.000002 Rows_sent: 25  Rows_examined: 85
+SET timestamp=1765451504;
+SELECT 
+    category,
+    product_name,
+    total_revenue,
+    RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS rank_in_category
+FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+    FROM Product p
+    JOIN OrderItem oi ON p.product_id = oi.product_id
+    JOIN `Order` o ON oi.order_id = o.order_id
+    WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) ranked
+ORDER BY category, rank_in_category LIMIT 0, 25;
+# Time: 2025-12-11T11:11:44.984080Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   673
+# Query_time: 0.001338  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 30
+SET timestamp=1765451504;
+SELECT COUNT(*) FROM (SELECT category, product_name, total_revenue, RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS `rank_in_category` FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+ FROM Product p
+ JOIN OrderItem oi ON p.product_id = oi.product_id
+ JOIN `Order` o ON oi.order_id = o.order_id
+ WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) AS `ranked` ) as cnt;
+# Time: 2025-12-11T11:11:45.011471Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   673
+# Query_time: 0.001395  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451505;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:11:45.012549Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   673
+# Query_time: 0.000661  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451505;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:11:45.013476Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   673
+# Query_time: 0.000515  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451505;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:11:47.358798Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   675
+# Query_time: 0.002082  Lock_time: 0.000003 Rows_sent: 25  Rows_examined: 85
+SET timestamp=1765451507;
+SELECT 
+    category,
+    product_name,
+    total_revenue,
+    RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS rank_in_category
+FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+    FROM Product p
+    JOIN OrderItem oi ON p.product_id = oi.product_id
+    JOIN `Order` o ON oi.order_id = o.order_id
+    WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) ranked
+ORDER BY category, rank_in_category LIMIT 0, 25;
+# Time: 2025-12-11T11:11:47.360449Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   675
+# Query_time: 0.001300  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 30
+SET timestamp=1765451507;
+SELECT COUNT(*) FROM (SELECT category, product_name, total_revenue, RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS `rank_in_category` FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+ FROM Product p
+ JOIN OrderItem oi ON p.product_id = oi.product_id
+ JOIN `Order` o ON oi.order_id = o.order_id
+ WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) AS `ranked` ) as cnt;
+# Time: 2025-12-11T11:11:47.385070Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   675
+# Query_time: 0.000841  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765451507;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:11:47.385990Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   675
+# Query_time: 0.000493  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451507;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:11:47.386782Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   675
+# Query_time: 0.000401  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765451507;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:30:04.861900Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   786
+# Query_time: 0.002076  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765452604;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:30:04.862962Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   786
+# Query_time: 0.000707  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765452604;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:30:04.863702Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   786
+# Query_time: 0.000505  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765452604;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:36:46.225093Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   828
+# Query_time: 0.000981  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765453006;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:36:46.226105Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   828
+# Query_time: 0.000629  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453006;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:36:46.227242Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   828
+# Query_time: 0.000524  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453006;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:36:54.345081Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   831
+# Query_time: 0.001095  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765453014;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:36:54.345917Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   831
+# Query_time: 0.000535  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453014;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:36:54.346606Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   831
+# Query_time: 0.000467  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453014;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:36:55.377849Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   833
+# Query_time: 0.000881  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765453015;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:36:55.378892Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   833
+# Query_time: 0.000616  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453015;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:36:55.379961Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   833
+# Query_time: 0.000705  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453015;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T11:36:57.395551Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   835
+# Query_time: 0.001094  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765453017;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T11:36:57.396923Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   835
+# Query_time: 0.000739  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453017;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T11:36:57.397806Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   835
+# Query_time: 0.000462  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765453017;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';

@@ -2,3 +2,4 @@
 sql/docker_init/
 logs/mysql_general.log
 logs/mysql_general_query.log
+tree.py

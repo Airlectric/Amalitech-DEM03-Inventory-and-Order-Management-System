@@ -1,11 +1,91 @@
-# ER Diagram Documentation
+# Project Documentation
+
+## Table of Contents
+1. Introduction  
+2. Project Structure  
+3. ER Diagram Documentation  
+    3.1 Overview  
+    3.2 ER Diagram  
+    3.3 Entity Summaries  
+    3.4 Relationship and Cardinality Rules  
+    3.5 Notes on Keys and Design Decisions  
+4. Database Initialization Guide  
+    4.1 SQL File Structure (ddl, dml, docker_init)  
+    4.2 Automated SQL Generation  
+    4.3 Using the generate_docker_init.sh Script  
+5. Docker Environment Setup  
+    5.1 MySQL Service  
+    5.2 phpMyAdmin Service  
+6. Accessing the Database  
+    6.1 Starting Docker  
+    6.2 Entering the MySQL Container  
+    6.3 Connecting to the MySQL Shell  
+7. Additional Notes and Best Practices  
+
+---
+
+# 1. Introduction
+
+This document provides the full architectural, structural, and operational documentation for the project.  
+It explains the Entity-Relationship model, directory structure, SQL initialization approach, Docker setup, and instructions for accessing the database.
+
+---
+
+# 2. Project Structure
+
+```
+
+project_root/
+│
+├── README.md
+│
+├── er_diagram/
+│   ├── er_diagram.puml
+│   └── er_diagram.png
+│  
+│
+├── sql/
+│   ├── ddl/
+│   │   ├── create_tables.sql
+│   │   ├── constraints.sql
+│   │   └── indexes.sql
+│   │
+│   ├── dml/
+│   │   ├── sample_data.sql
+│   │   └── update_inventory.sql
+│   │
+│   ├── queries/
+│   │   ├── kpi_queries.sql
+│   │   └── analytical_queries.sql
+│   │   
+│   │
+│   └── utils/
+│       └── cleanup.sql
+│
+├── sql/docker_init/   (auto-generated)
+│   ├── 01_ddl_create_tables.sql
+│   ├── 02_ddl_constraints.sql
+│   ├── 03_ddl_indexes.sql
+│   ├── 04_dml_sample_data.sql
+│   ├── 05_dml_update_inventory.sql
+│
+|
+│
+├── generate_docker_init.sh
+└── docker-compose.yml
+
+```
+
+---
+
+# 3. ER Diagram Documentation
 
 This document provides an overview of the Entity-Relationship (ER) Diagram used in the project.
 It explains the data model, core entities, relationships, and cardinality rules that guide the database design.
 
 ---
 
-## Overview
+## 3.1 Overview
 
 The ER diagram represents the **conceptual and physical structure** of the system’s database.
 It captures the key business objects, such as **Customer**, **Order**, **Product**, **OrderItem**, and **Inventory**, and illustrates how these entities interact with one another.
@@ -19,24 +99,27 @@ The model ensures:
 
 ---
 
-## ER Diagram
+## 3.2 ER Diagram
 
 ![ER Diagram ](./er_diagram/er_diagram.png)
 
 ---
 
-## File Location
+## 3.3 File Location
 
 All ER-diagram–related assets are stored in the **`er_diagram/`** folder, including:
 
 * The **PlantUML code** used to generate the diagram
-* The **rendered ER diagram image** (PNG/SVG)
+* The **rendered ER diagram image** 
 
 PlantUML code was used to make updating the ER diagram easy as the database design evolves.
 
+PlantUML allows the diagram to be updated quickly whenever changes are made to the database design.
+
+
 ---
 
-## Summary of Entities & Relationships
+## 3.4 Summary of Entities & Relationships
 
 ### **Customer**
 
@@ -106,96 +189,214 @@ Implements the many-to-many relationship by storing:
   * **Minimum/Maximum Inventory side:** 1, each inventory entry corresponds to a single product
   * Ensures strong consistency for stock tracking
 
+
+
+## 3.3 Entity Summaries
+
+### Customer  
+Represents individuals who place orders.  
+Each customer may have multiple orders over time, but a new customer may have none yet.
+
+### Order  
+Represents a purchase activity.  
+An order must contain at least one OrderItem.  
+Each order is linked to exactly one customer.
+
+### Product  
+Represents items the business sells.  
+A product may or may not appear in an order depending on whether it has been purchased before.
+
+### Inventory  
+Tracks the available stock for each product.  
+Each product is associated with exactly one inventory record.  
+The relationship is enforced by sharing the same primary key.
+
+### OrderItem  
+Represents an item within an order.  
+It resolves the many-to-many relationship between Order and Product.  
+Stores product ID, order ID, quantity, and price at the time of purchase.
+
 ---
 
+## 3.4 Relationship and Cardinality Rules
 
+### Customer to Order  
+- Zero or Many  
+A customer may have no orders or many over time.
 
-# **Database Initialization & Access Guide**
+### Order to OrderItem  
+- One or Many  
+An order must contain at least one item.
 
-This guide explains:
+### Product to OrderItem  
+- Zero or Many  
+A product may appear in no orders or in many.
 
-* How to generate and organize your `ddl/` and `dml/` SQL files for Docker.
-* How to access the MySQL database inside your running Docker container.
+### Product to Inventory  
+- One to One  
+Each product must have exactly one inventory record.
 
 ---
 
-## **1. Generating Docker-Ready SQL Initialization Files**
+## 3.5 Notes on Keys and Design Decisions
 
-Whenever you update your `ddl/` or `dml/` folders, regenerate the `docker_init/` folder so Docker loads SQL files in the correct order.
+### Use of Surrogate Keys  
+The OrderItem table contains a surrogate key (`order_item_id`) even though a composite key (`order_id`, `product_id`) could uniquely identify each row.  
+This improves performance and simplifies joins and future extensions.
 
-### **Step 1: Make the Script Executable**
+### Normalization  
+The database is normalized to ensure data integrity and eliminate redundancy.
+
+### Triggers and Procedures  
+Triggers automate updates to order totals and inventory.  
+Procedures encapsulate business logic such as updating totals and adjusting stock.
+
+---
+
+# 4. Database Initialization Guide
+
+## 4.1 SQL File Structure
+
+The SQL files are divided into:
+
+### ddl/  
+Contains Data Definition Language files:
+- Table creation  
+- Constraints  
+- Indexes  
+
+### dml/  
+Contains Data Manipulation Language files:
+- Sample data  
+- Data updates  
+
+### docker_init/  
+Contains auto-generated SQL files prefixed so Docker loads them in the correct order.
+
+---
+
+## 4.2 Automated SQL Generation
+
+The `generate_docker_init.sh` script scans:
+
+- `sql/ddl/`  
+- `sql/dml/`  
+
+and creates a correctly ordered list of SQL files in:
 
 ```bash
+
+sql/docker_init/
+
+```
+
+This ensures MySQL executes the SQL files in sequence during container startup.
+
+---
+
+## 4.3 Using the generate_docker_init.sh Script
+
+### Step 1: Make the script executable
+
+```bash
+
 chmod +x generate_docker_init.sh
+
 ```
 
-### **Step 2: Run the Script**
+### Step 2: Run the script
 
 ```bash
+
 ./generate_docker_init.sh
+
 ```
 
-This automatically builds the proper `docker_init/` folder from your `ddl/` and `dml/` files.
+This regenerates the docker_init folder based on the latest ddl and dml files.
 
-### **Step 3: Start Docker**
+### Step 3: Start Docker
 
 ```bash
-docker-compose up -d
-```
 
-Your MySQL container will now load the SQL files correctly without manual copying.
+docker-compose up -d
+
+```
 
 ---
 
-## **2. How to Access MySQL Inside the Docker Container**
+# 5. Docker Environment Setup
 
-### **Step 1: Start Containers**
+## 5.1 MySQL Service
+
+The MySQL container:
+- Loads environment variables from `.env`
+- Executes SQL files from `sql/docker_init/`
+- Writes logs to the mounted `logs/` directory
+- Enables general, slow, and error logging for debugging and optimization
+
+## 5.2 phpMyAdmin Service
+
+phpMyAdmin provides a browser interface for database management.
+
+It runs at:
+
+
+[http://localhost:8080](http://localhost:8080)
+
+
+It uses MySQL service name (`mysql`) to connect internally within Docker.
+
+---
+
+# 6. Accessing the Database
+
+## 6.1 Start Docker
 
 ```bash
+
 docker-compose up -d
+
 ```
 
-Runs everything in the background.
-
-### **Step 2: Enter the MySQL Container**
+## 6.2 Enter the MySQL Container
 
 ```bash
+
 docker exec -it ecommerce_project bash
-```
-
-Your prompt will change:
 
 ```
-root@<container_id>:/#
-```
 
-You are now inside the container.
-
-### **Step 3: Connect to MySQL**
+## 6.3 Connect to MySQL Shell
 
 ```bash
-mysql -u ecommerce_user -p
-```
 
-Use the username from your `.env` file.
-
-### **Step 4: Enter Your Password**
-
-You’ll be prompted for the password from `.env`.
-
-Once successful, you’ll see:
+mysql -u <your_mysql_user> -p
 
 ```
-mysql>
-```
 
-You can now run SQL queries.
+Use the password from your `.env` file.
 
-Example:
+Example commands once connected:
 
 ```sql
+
 SHOW DATABASES;
-USE ecommerce_db;
+USE <your_database_name>;
 SELECT * FROM Customer;
+
 ```
+
+---
+
+# 7. Additional Notes and Best Practices
+
+- Always regenerate the docker_init folder whenever ddl or dml files change.
+- Avoid placing SQL files directly under docker_init manually.
+- Use consistent naming conventions across SQL files.
+- Use phpMyAdmin or MySQL CLI for testing queries.
+- Keep ER diagrams updated whenever structural database changes occur.
+- Maintain normalization to avoid data redundancy.
+- Keep business logic in stored procedures and triggers to maintain consistency.
+
+
 
