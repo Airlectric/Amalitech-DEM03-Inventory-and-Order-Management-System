@@ -33,5 +33,20 @@ services:
       timeout: 5s
       retries: 10
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: ecommerce_phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PMA_PORT: ${MYSQL_PORT}
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+
+
 volumes:
   mysql_data:

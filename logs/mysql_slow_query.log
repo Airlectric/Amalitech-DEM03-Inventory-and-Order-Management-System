@@ -1,0 +1,715 @@
+# Time: 2025-12-10T15:54:44.126171Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.001425  Lock_time: 0.000014 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382084;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 31;
+# Time: 2025-12-10T15:54:44.129988Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.001891  Lock_time: 0.000020 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382084;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 31;
+# Time: 2025-12-10T15:55:15.268392Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.001756  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382115;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 34;
+# Time: 2025-12-10T15:55:15.270940Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000576  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382115;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 34;
+# Time: 2025-12-10T15:57:25.924895Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.015123  Lock_time: 0.000020 Rows_sent: 5  Rows_examined: 764
+use ecommerce_db;
+SET timestamp=1765382245;
+SELECT 
+    p.product_name,
+    SUM(oi.quantity) AS total_quantity_sold
+FROM Product p
+JOIN OrderItem oi ON p.product_id = oi.product_id
+JOIN `Order` o ON oi.order_id = o.order_id
+WHERE o.order_status IN ('Shipped', 'Delivered')
+GROUP BY p.product_id, p.product_name
+ORDER BY total_quantity_sold DESC
+LIMIT 5;
+# Time: 2025-12-10T15:57:25.949206Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.002062  Lock_time: 0.000002 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382245;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 37;
+# Time: 2025-12-10T15:57:25.953060Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.001005  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382245;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 37;
+# Time: 2025-12-10T15:59:01.796285Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.003305  Lock_time: 0.000006 Rows_sent: 5  Rows_examined: 764
+SET timestamp=1765382341;
+SELECT 
+    p.product_name,
+    COUNT(oi.quantity) AS total_quantity_sold
+FROM Product p
+JOIN OrderItem oi ON p.product_id = oi.product_id
+JOIN `Order` o ON oi.order_id = o.order_id
+WHERE o.order_status IN ('Shipped', 'Delivered')
+GROUP BY p.product_id, p.product_name
+ORDER BY total_quantity_sold DESC
+LIMIT 5;
+# Time: 2025-12-10T15:59:01.813613Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000623  Lock_time: 0.000002 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382341;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 40;
+# Time: 2025-12-10T15:59:01.815682Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000477  Lock_time: 0.000002 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382341;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 40;
+# Time: 2025-12-10T15:59:32.100922Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.002672  Lock_time: 0.000005 Rows_sent: 5  Rows_examined: 764
+SET timestamp=1765382372;
+SELECT 
+    p.product_name,
+    SUM(oi.quantity) AS total_quantity_sold
+FROM Product p
+JOIN OrderItem oi ON p.product_id = oi.product_id
+JOIN `Order` o ON oi.order_id = o.order_id
+WHERE o.order_status IN ('Shipped', 'Delivered')
+GROUP BY p.product_id, p.product_name
+ORDER BY total_quantity_sold DESC
+LIMIT 5;
+# Time: 2025-12-10T15:59:32.125914Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.003623  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382372;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 43;
+# Time: 2025-12-10T15:59:32.129365Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000757  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382372;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 43;
+# Time: 2025-12-10T16:02:38.114968Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.011672  Lock_time: 0.000007 Rows_sent: 5  Rows_examined: 764
+SET timestamp=1765382558;
+SELECT 
+    p.product_name,
+    SUM(oi.quantity) AS total_quantity_sold
+FROM Product p
+JOIN OrderItem oi ON p.product_id = oi.product_id
+JOIN `Order` o ON oi.order_id = o.order_id
+WHERE o.order_status IN ('Shipped', 'Delivered')
+GROUP BY p.product_id, p.product_name
+ORDER BY total_quantity_sold DESC
+LIMIT 5;
+# Time: 2025-12-10T16:02:38.131542Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000623  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382558;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 47;
+# Time: 2025-12-10T16:02:38.134372Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000516  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382558;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 47;
+# Time: 2025-12-10T16:02:45.830715Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.003006  Lock_time: 0.000005 Rows_sent: 5  Rows_examined: 764
+SET timestamp=1765382565;
+SELECT 
+    p.product_name,
+    SUM(oi.quantity) AS total_quantity_sold
+FROM Product p
+JOIN OrderItem oi ON p.product_id = oi.product_id
+JOIN `Order` o ON oi.order_id = o.order_id
+WHERE o.order_status IN ('Shipped', 'Delivered')
+GROUP BY p.product_id, p.product_name
+ORDER BY total_quantity_sold DESC
+LIMIT 5;
+# Time: 2025-12-10T16:02:45.855142Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.002383  Lock_time: 0.000005 Rows_sent: 5  Rows_examined: 764
+SET timestamp=1765382565;
+SELECT 
+    p.product_name,
+    p.category,
+    SUM(oi.quantity) AS total_quantity_sold
+FROM Product p
+JOIN OrderItem oi ON p.product_id = oi.product_id
+JOIN `Order` o ON oi.order_id = o.order_id
+WHERE o.order_status IN ('Shipped', 'Delivered')
+GROUP BY p.product_id, p.product_name, p.category
+ORDER BY total_quantity_sold DESC
+LIMIT 5;
+# Time: 2025-12-10T16:06:53.775670Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.016400  Lock_time: 0.000009 Rows_sent: 3  Rows_examined: 80
+SET timestamp=1765382813;
+SELECT 
+	date_format(order_date, '%Y -%m') AS sales_month,
+    SUM(total_amount)
+FROM `Order`
+GROUP BY sales_month
+LIMIT 0, 1000;
+# Time: 2025-12-10T16:06:53.794442Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000787  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382813;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 55;
+# Time: 2025-12-10T16:06:53.797378Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000774  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765382813;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 55;
+# Time: 2025-12-10T16:13:51.492136Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.002964  Lock_time: 0.000008 Rows_sent: 30  Rows_examined: 90
+SET timestamp=1765383231;
+SELECT 
+    category,
+    product_name,
+    total_revenue,
+    RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS rank_in_category
+FROM (
+    SELECT 
+        p.category,
+        p.product_name,
+        SUM(oi.quantity * oi.price_at_purchase) AS total_revenue
+    FROM Product p
+    JOIN OrderItem oi ON p.product_id = oi.product_id
+    JOIN `Order` o ON oi.order_id = o.order_id
+    WHERE o.order_status IN ('Shipped', 'Delivered')
+    GROUP BY p.product_id, p.category, p.product_name
+) ranked
+ORDER BY category, rank_in_category;
+# Time: 2025-12-10T16:13:51.507033Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000587  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765383231;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 63;
+# Time: 2025-12-10T16:13:51.509227Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000575  Lock_time: 0.000003 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765383231;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 63;
+# Time: 2025-12-10T16:15:57.887707Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    40
+# Query_time: 0.008086  Lock_time: 0.000025 Rows_sent: 55  Rows_examined: 135
+SET timestamp=1765383357;
+WITH ordered_customers AS (
+    SELECT 
+        c.customer_id,
+        c.full_name,
+        o.order_id,
+        o.order_date,
+        LAG(o.order_date) OVER (PARTITION BY c.customer_id ORDER BY o.order_date) AS previous_order_date
+    FROM Customer c
+    JOIN `Order` o ON c.customer_id = o.customer_id
+)
+SELECT 
+    full_name,
+    order_date AS current_order_date,
+    previous_order_date,
+    TIMESTAMPDIFF(DAY, previous_order_date, order_date) AS days_between_orders
+FROM ordered_customers
+WHERE previous_order_date IS NOT NULL
+ORDER BY days_between_orders;
+# Time: 2025-12-10T16:15:57.903495Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000490  Lock_time: 0.000002 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765383357;
+SELECT st.* FROM performance_schema.events_stages_history_long st WHERE st.nesting_event_id = 66;
+# Time: 2025-12-10T16:15:57.905828Z
+# User@Host: root[root] @  [172.18.0.1]  Id:    39
+# Query_time: 0.000549  Lock_time: 0.000002 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1765383357;
+SELECT st.* FROM performance_schema.events_waits_history_long st WHERE st.nesting_event_id = 66;
+/usr/sbin/mysqld, Version: 8.0.44 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+/usr/sbin/mysqld, Version: 8.0.44 (MySQL Community Server - GPL). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+/usr/sbin/mysqld, Version: 8.0.44 (MySQL Community Server - GPL). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2025-12-11T09:45:34.848211Z
+# User@Host: root[root] @ localhost []  Id:    20
+# Query_time: 0.062638  Lock_time: 0.000012 Rows_sent: 0  Rows_examined: 321
+use ecommerce_db;
+SET timestamp=1765446334;
+INSERT INTO OrderItem (order_id, product_id, quantity)
+SELECT seq AS order_id,
+       FLOOR(1 + RAND() * 30) AS product_id,
+       FLOOR(1 + RAND() * 5) AS quantity
+FROM (
+    SELECT @row := @row + 1 AS seq
+    FROM information_schema.columns,
+         (SELECT @row := 0) AS init
+    LIMIT 80
+) AS numbers;
+/usr/sbin/mysqld, Version: 8.0.44 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2025-12-11T09:45:50.509825Z
+# User@Host: root[root] @  [172.18.0.3]  Id:     9
+# Query_time: 0.002248  Lock_time: 0.000005 Rows_sent: 41  Rows_examined: 82
+use mysql;
+SET timestamp=1765446350;
+SELECT `CHARACTER_SET_NAME` AS `Charset`, `DEFAULT_COLLATE_NAME` AS `Default collation`, `DESCRIPTION` AS `Description`, `MAXLEN` AS `Maxlen` FROM `information_schema`.`CHARACTER_SETS`;
+# Time: 2025-12-11T09:45:50.512012Z
+# User@Host: root[root] @  [172.18.0.3]  Id:     9
+# Query_time: 0.001629  Lock_time: 0.000004 Rows_sent: 286  Rows_examined: 327
+SET timestamp=1765446350;
+SELECT `COLLATION_NAME` AS `Collation`, `CHARACTER_SET_NAME` AS `Charset`, `ID` AS `Id`, `IS_DEFAULT` AS `Default`, `IS_COMPILED` AS `Compiled`, `SORTLEN` AS `Sortlen` FROM `information_schema`.`COLLATIONS`;
+# Time: 2025-12-11T09:45:50.590451Z
+# User@Host: root[root] @  [172.18.0.3]  Id:     9
+# Query_time: 0.003106  Lock_time: 0.000009 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446350;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:45:50.594524Z
+# User@Host: root[root] @  [172.18.0.3]  Id:     9
+# Query_time: 0.000951  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446350;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:45:50.597012Z
+# User@Host: root[root] @  [172.18.0.3]  Id:     9
+# Query_time: 0.000594  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446350;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:45:50.620164Z
+# User@Host: root[root] @  [172.18.0.3]  Id:     9
+# Query_time: 0.000823  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446350;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:45:51.401403Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    11
+# Query_time: 0.002728  Lock_time: 0.000005 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446351;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:45:51.422150Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    13
+# Query_time: 0.002248  Lock_time: 0.000004 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446351;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:45:51.425521Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    13
+# Query_time: 0.002204  Lock_time: 0.000015 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446351;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:45:51.429106Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    13
+# Query_time: 0.001803  Lock_time: 0.000005 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446351;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:45:51.438295Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    13
+# Query_time: 0.001500  Lock_time: 0.000005 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446351;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:45:51.453879Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    15
+# Query_time: 0.001477  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446351;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:45:52.126734Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    19
+# Query_time: 0.002212  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446352;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:29.319649Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    25
+# Query_time: 0.001054  Lock_time: 0.000003 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446389;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:29.328906Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    25
+# Query_time: 0.001042  Lock_time: 0.000004 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446389;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:29.343030Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    25
+# Query_time: 0.000999  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446389;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:32.073301Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    27
+# Query_time: 0.001366  Lock_time: 0.000002 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446392;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:32.079883Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    27
+# Query_time: 0.000996  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446392;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:32.087357Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    27
+# Query_time: 0.000672  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446392;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:34.789408Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    29
+# Query_time: 0.001056  Lock_time: 0.000002 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446394;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:34.795704Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    29
+# Query_time: 0.001136  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446394;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:34.819935Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    29
+# Query_time: 0.000751  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446394;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:37.079909Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    31
+# Query_time: 0.001174  Lock_time: 0.000002 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446397;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:37.086173Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    31
+# Query_time: 0.000604  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446397;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:37.112333Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    31
+# Query_time: 0.000939  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446397;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:38.914801Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    33
+# Query_time: 0.001043  Lock_time: 0.000002 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446398;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:38.918481Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    33
+# Query_time: 0.000424  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446398;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:38.934712Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    33
+# Query_time: 0.000675  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446398;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:42.307052Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    36
+# Query_time: 0.000899  Lock_time: 0.000001 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446402;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:42.311962Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    36
+# Query_time: 0.000466  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446402;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:42.334494Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    36
+# Query_time: 0.000560  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446402;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:44.439917Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    38
+# Query_time: 0.001056  Lock_time: 0.000001 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446404;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:44.444102Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    38
+# Query_time: 0.000517  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446404;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:46:44.457731Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    38
+# Query_time: 0.000682  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446404;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:47.790222Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    40
+# Query_time: 0.001069  Lock_time: 0.000001 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446407;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:47.796466Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    40
+# Query_time: 0.000575  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446407;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='information_schema';
+# Time: 2025-12-11T09:46:47.804196Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    40
+# Query_time: 0.000797  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446407;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:46:59.707595Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.000968  Lock_time: 0.000002 Rows_sent: 5  Rows_examined: 5
+SET timestamp=1765446419;
+SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s  GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a;
+# Time: 2025-12-11T09:46:59.708849Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.000530  Lock_time: 0.000002 Rows_sent: 5  Rows_examined: 16
+SET timestamp=1765446419;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`;
+# Time: 2025-12-11T09:46:59.710535Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.001268  Lock_time: 0.000000 Rows_sent: 286  Rows_examined: 327
+SET timestamp=1765446419;
+SELECT `COLLATION_NAME` AS `Collation`, `CHARACTER_SET_NAME` AS `Charset`, `ID` AS `Id`, `IS_DEFAULT` AS `Default`, `IS_COMPILED` AS `Compiled`, `SORTLEN` AS `Sortlen` FROM `information_schema`.`COLLATIONS`;
+# Time: 2025-12-11T09:46:59.713252Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.000737  Lock_time: 0.000003 Rows_sent: 41  Rows_examined: 82
+SET timestamp=1765446419;
+SELECT `CHARACTER_SET_NAME` AS `Charset`, `DEFAULT_COLLATE_NAME` AS `Default collation`, `DESCRIPTION` AS `Description`, `MAXLEN` AS `Maxlen` FROM `information_schema`.`CHARACTER_SETS`;
+# Time: 2025-12-11T09:46:59.732080Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.001876  Lock_time: 0.000003 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446419;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:46:59.733968Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.000907  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446419;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:46:59.735436Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.000948  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446419;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:46:59.738773Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    44
+# Query_time: 0.001011  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446419;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:00.349944Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    46
+# Query_time: 0.000987  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446420;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:00.364019Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    48
+# Query_time: 0.002907  Lock_time: 0.000006 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446420;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:47:00.372232Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    48
+# Query_time: 0.000985  Lock_time: 0.000004 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446420;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:47:00.398506Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    48
+# Query_time: 0.001188  Lock_time: 0.000004 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446420;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:47:00.400554Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    48
+# Query_time: 0.001462  Lock_time: 0.000006 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446420;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:47:00.425677Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    48
+# Query_time: 0.000737  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446420;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:00.439154Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    50
+# Query_time: 0.000875  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446420;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:00.484446Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    52
+# Query_time: 0.001071  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446420;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:03.647682Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    54
+# Query_time: 0.002445  Lock_time: 0.000003 Rows_sent: 286  Rows_examined: 327
+use ecommerce_db;
+SET timestamp=1765446423;
+SELECT `COLLATION_NAME` AS `Collation`, `CHARACTER_SET_NAME` AS `Charset`, `ID` AS `Id`, `IS_DEFAULT` AS `Default`, `IS_COMPILED` AS `Compiled`, `SORTLEN` AS `Sortlen` FROM `information_schema`.`COLLATIONS`;
+# Time: 2025-12-11T09:47:03.684837Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    54
+# Query_time: 0.001248  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446423;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:03.686157Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    54
+# Query_time: 0.000800  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446423;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T09:47:03.687109Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    54
+# Query_time: 0.000564  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446423;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:47:26.732102Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    58
+# Query_time: 0.001418  Lock_time: 0.000001 Rows_sent: 286  Rows_examined: 327
+SET timestamp=1765446446;
+SELECT `COLLATION_NAME` AS `Collation`, `CHARACTER_SET_NAME` AS `Charset`, `ID` AS `Id`, `IS_DEFAULT` AS `Default`, `IS_COMPILED` AS `Compiled`, `SORTLEN` AS `Sortlen` FROM `information_schema`.`COLLATIONS`;
+# Time: 2025-12-11T09:47:26.747532Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    58
+# Query_time: 0.001202  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446446;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:26.748355Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    58
+# Query_time: 0.000466  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446446;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T09:47:26.748843Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    58
+# Query_time: 0.000293  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446446;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:47:37.247201Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.000907  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446457;
+SELECT (COUNT(DB_first_level) DIV 100) * 100 from (  SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME,  '_', 1)  DB_first_level  FROM INFORMATION_SCHEMA.SCHEMATA  WHERE `SCHEMA_NAME` < 'ecommerce_db' ) t;
+# Time: 2025-12-11T09:47:37.250984Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.001300  Lock_time: 0.000003 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446457;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:47:37.252403Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.000786  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446457;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:47:37.253825Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.000818  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446457;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:47:37.258865Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.001204  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446457;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:37.260530Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.000772  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446457;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T09:47:37.261837Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    61
+# Query_time: 0.000825  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446457;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:47:37.764939Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    63
+# Query_time: 0.000978  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446457;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:37.781825Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    65
+# Query_time: 0.001679  Lock_time: 0.000049 Rows_sent: 5  Rows_examined: 26
+SET timestamp=1765446457;
+SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC;
+# Time: 2025-12-11T09:47:37.787198Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    65
+# Query_time: 0.000588  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 0
+SET timestamp=1765446457;
+SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='ecommerce_db';
+# Time: 2025-12-11T09:47:37.805621Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    65
+# Query_time: 0.000470  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446457;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:47:37.806242Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    65
+# Query_time: 0.000383  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 5
+SET timestamp=1765446457;
+SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t;
+# Time: 2025-12-11T09:47:37.830528Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    65
+# Query_time: 0.001054  Lock_time: 0.000004 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446457;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:37.843006Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    67
+# Query_time: 0.001382  Lock_time: 0.000004 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446457;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:37.904483Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    69
+# Query_time: 0.000674  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446457;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:47.551773Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    72
+# Query_time: 0.000961  Lock_time: 0.000003 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446467;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:47:47.552906Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    72
+# Query_time: 0.000631  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446467;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T09:47:47.553851Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    72
+# Query_time: 0.000582  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446467;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:48:01.819990Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    88
+# Query_time: 0.001039  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446481;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:48:01.821334Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    88
+# Query_time: 0.000785  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446481;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T09:48:01.822641Z
+# User@Host: root[root] @  [172.18.0.3]  Id:    88
+# Query_time: 0.000722  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446481;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:48:29.138258Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   108
+# Query_time: 0.001245  Lock_time: 0.000002 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446509;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:48:29.139710Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   108
+# Query_time: 0.000905  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446509;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='EVENT';
+# Time: 2025-12-11T09:48:29.141208Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   108
+# Query_time: 0.000859  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446509;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:48:58.648799Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   139
+# Query_time: 0.000458  Lock_time: 0.000002 Rows_sent: 25  Rows_examined: 25
+SET timestamp=1765446538;
+SELECT * 
+FROM `Order` LIMIT 0, 25;
+# Time: 2025-12-11T09:48:58.703293Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   139
+# Query_time: 0.000855  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446538;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:48:58.704349Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   139
+# Query_time: 0.000592  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446538;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
+# Time: 2025-12-11T09:49:30.511923Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   149
+# Query_time: 0.000493  Lock_time: 0.000001 Rows_sent: 25  Rows_examined: 25
+SET timestamp=1765446570;
+SELECT * 
+FROM `OrderItem` LIMIT 0, 25;
+# Time: 2025-12-11T09:49:30.562336Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   149
+# Query_time: 0.000937  Lock_time: 0.000001 Rows_sent: 1  Rows_examined: 2
+SET timestamp=1765446570;
+SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''%''' LIKE `GRANTEE`  UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_0900_ai_ci AND 'root' LIKE `User` AND '' LIKE `Host` LIMIT 1;
+# Time: 2025-12-11T09:49:30.563053Z
+# User@Host: root[root] @  [172.18.0.3]  Id:   149
+# Query_time: 0.000455  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 153
+SET timestamp=1765446570;
+SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''%''' AND PRIVILEGE_TYPE='TRIGGER';
