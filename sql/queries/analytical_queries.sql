@@ -3,7 +3,7 @@ SELECT
     category,
     product_name,
     total_revenue,
-    DENSE_RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS rank_in_category
+    RANK() OVER (PARTITION BY category ORDER BY total_revenue DESC) AS rank_in_category
 FROM (
     SELECT 
         p.category,
